@@ -1,0 +1,83 @@
+#include <cstdio>
+#include <string>
+#include <cmath>
+#include <string>
+#include <algorithm>
+#include <iostream>
+#include <map>
+#include <vector>
+using namespace std;
+
+// Union-Find Tree
+struct UnionFind {
+  vector<int> data;
+  UnionFind(int size) : data(size, -1) { }
+  bool unionSet(int x, int y) {
+    x = root(x); y = root(y);
+    if (x != y) {
+      if (data[y] < data[x]) swap(x, y);
+      data[x] += data[y]; data[y] = x;
+    }
+    return x != y;
+  }
+  bool findSet(int x, int y) {
+    return root(x) == root(y);
+  }
+  int root(int x) {
+    return data[x] < 0 ? x : data[x] = root(data[x]);
+  }
+  int size(int x) {
+    return -data[root(x)];
+  }
+};
+
+
+// 各桁の数字の和を返す
+// exp) SummarizeDigit(12345) = 15
+int SummarizeDigit(int n){
+  int sum=0;
+  int dig;
+  while(n){
+    dig = n%10;
+    sum += dig;
+    n /= 10;
+  } 
+  return sum;
+}
+
+
+// エラトステネスの篩
+// bool ver.
+std::vector<bool> IsPrime;
+void sieve(size_t max){
+    if(max+1 > IsPrime.size()){     // resizeで要素数が減らないように
+        IsPrime.resize(max+1,true); // IsPrimeに必要な要素数を確保
+    } 
+    IsPrime[0] = false; // 0は素数ではない
+    IsPrime[1] = false; // 1は素数ではない
+
+    for(size_t i=2; i*i<=max; ++i) // 0からsqrt(max)まで調べる
+        if(IsPrime[i]) // iが素数ならば
+            for(size_t j=2; i*j<=max; ++j) // (max以下の)iの倍数は
+                IsPrime[i*j] = false;      // 素数ではない
+}
+
+
+// エラトステネスの篩
+// 数字格納Ver.
+std::vector<int> MakePrime(int n) {
+  std::vector<int> prime;
+  prime.emplace_back(2);
+  for (int i = 3; i <= n; i += 2) {
+    bool a = false;
+    for (int j = 3; j <= std::sqrt(i); j += 2) {
+      if (i%j == 0) {
+        a = true;
+      }
+    }
+    if (a == false) {
+      prime.emplace_back(i);
+    }
+  }
+  return prime;
+}
