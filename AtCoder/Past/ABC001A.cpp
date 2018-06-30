@@ -6,7 +6,6 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include <iomanip>
 using namespace std;
 #define rep(i, a, n) for (int i=a;i<n;++i)
 #define per(i, a, n) for (int i=n-1; i>=a;--i)
@@ -14,13 +13,12 @@ using namespace std;
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
 
-// 
+// A - 積雪深差
 int main(){
-    int N;
-    cin >> N;
+    int H1, H2;
+    cin >> H1 >> H2;
 
-    int ans = 0;
-    cout << ans << endl;
+    cout << H1-H2 << endl;
     return 0;
 }
 
