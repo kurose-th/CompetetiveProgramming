@@ -28,7 +28,17 @@ int main(){
             Ay[a] = j;
         }
     }
-
+/*
+    int remainder = D-1;
+    vector<vector<int>> power(D, H*W/D+1);
+    rep(i, 0, remainder){
+        int num = remainder;
+        while(num<H*W+D){
+            power[i][num] = abs(Ay[num+D]-Ay[num]) + abs(Ax[num+D]-Ax[num]);
+            num += D;
+        }
+    }
+*/
 
 
     int ans = 0;
