@@ -24,8 +24,8 @@ int main(){
     double cyb = yb - ya;
     double cxc = xc - xa;
     double cyc = yc - ya;
-    ans = abs(cxb*cyc - cyb*cxc)/2.0;
-    cout << showpoint << ans << endl;
+    ans = abs(cxb*cyc - cyb*cxc)*0.5;
+    printf("%.4f\n", ans);
     return 0;
 }
 

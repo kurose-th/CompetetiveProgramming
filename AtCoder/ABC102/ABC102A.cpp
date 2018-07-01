@@ -15,12 +15,17 @@ using namespace std;
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
 
-// 
+// A - Multiple of 2 and N
 int main(){
     int N;
     cin >> N;
+    int ans=0;
+    if(N%2==0){
+        ans=N;
+    }else{
+        ans=N*2;
+    }
 
-    int ans = 0;
     cout << ans << endl;
     return 0;
 }

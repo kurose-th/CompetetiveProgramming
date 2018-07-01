@@ -15,10 +15,14 @@ using namespace std;
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
 
-// 
+// C - Strange Bank(DP)
 int main(){
     int N;
     cin >> N;
+    int f[101000];
+    rep(i, 0, sizeof(f)/sizeof(int)){
+
+    }
 
     int ans = 0;
     cout << ans << endl;
