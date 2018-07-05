@@ -8,6 +8,7 @@
 #include <vector>
 using namespace std;
 
+
 // Union-Find Tree
 struct UnionFind {
   vector<int> data;
@@ -80,4 +81,19 @@ std::vector<int> MakePrime(int n) {
     }
   }
   return prime;
+}
+
+
+// Bit全探索
+void BitSearch(){
+  int L = 1;
+  // 2^L - 1回の全探索
+  for(int i=0;i<1<<L;++i){
+    int r;
+    for(r=0;r<L;++r){
+      // Bitが立っているときの処理
+      if((i & (1 << r)) != 0){
+      }
+    }
+  }
 }

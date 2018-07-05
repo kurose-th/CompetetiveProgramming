@@ -15,17 +15,33 @@ using namespace std;
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
 
-// A - Multiple of 2 and N
+// A - 高橋君とお肉
 int main(){
     int N;
     cin >> N;
-    int ans=0;
-    if(N%2==0){
-        ans=N;
-    }else{
-        ans=N*2;
+
+    int t[4];
+    rep(i, 0, N){
+        cin >> t[i];
     }
 
+    int ans = 10000000;
+    for(int i=0;i<1<<N;++i){
+        int r;
+        int m_0 = 0;
+        int m_1 = 0;
+        for(r=0;r<N;++r){
+            // Bitが立っているときの処理
+            if((i & (1 << r)) != 0){
+                m_0 += t[r];
+            }else{
+                m_1 += t[r];
+            }
+        }
+        int tmp = max(m_0, m_1);
+        ans = min(ans, tmp);
+    }
+    
     cout << ans << endl;
     return 0;
 }
