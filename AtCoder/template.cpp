@@ -7,6 +7,7 @@
 #include <map>
 #include <vector>
 #include <iomanip>
+#include <queue>
 using namespace std;
 #define rep(i, a, n) for (int i=a;i<n;++i)
 #define repeq(i, a, n) for(int i=a;i<=n;++i)
