@@ -15,6 +15,8 @@ using namespace std;
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
 
+// B - Union Find
+
 // Union-Find Tree
 struct UnionFind {
   vector<int> data;
@@ -38,7 +40,6 @@ struct UnionFind {
   }
 };
 
-// B - Union Find
 int main(){
     UnionFind uf();
     int N, Q;

@@ -16,6 +16,7 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 
 
+// A - 深さ優先探索
 int H, W;
 char maze[510][510];
 bool reached[510][510];
@@ -33,7 +34,6 @@ void dfs(int x, int y){
 
 }
 
-// A - 深さ優先探索
 int main(){
     cin >> H >> W;
 

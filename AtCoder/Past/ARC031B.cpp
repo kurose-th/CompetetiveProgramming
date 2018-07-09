@@ -16,6 +16,7 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 
 
+// B - 埋め立て
 int H, W;
 char islands[110][110];
 char tmp_islands[110][110];
@@ -45,7 +46,6 @@ void dfs(int x, int y){
     dfs(x, y+1);
 }
 
-// B - 埋め立て
 int main(){
     H = 10;
     W = 10;
