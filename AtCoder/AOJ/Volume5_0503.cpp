@@ -17,7 +17,7 @@ using namespace std;
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
 
-// 
+// Cup
 int N;
 int ans = 0;
 
