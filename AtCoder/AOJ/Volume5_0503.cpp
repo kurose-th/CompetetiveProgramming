@@ -18,11 +18,11 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 
 // Cup
-int N;
+int n, m, a, b, c;
 int ans = 0;
 
 int main(){
-    cin >> N;
+    cin >> n >> m;
 
     cout << ans << endl;
     return 0;
