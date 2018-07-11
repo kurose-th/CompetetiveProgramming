@@ -17,12 +17,35 @@ using namespace std;
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
 
-// Cup
-int n, m;
+// B - バウムテスト
+int N, M;
 int ans = 0;
+const int Z = 110;
+vector<int> g[Z];
+bool reached[Z];
+
+bool dfs(int now, int src){
+
+    
+}
 
 int main(){
-    cin >> n >> m;
+    cin >> N >> M;
+
+    rep(i, 0, Z) reached[i] = false;
+
+    rep(i, 0, M){
+        int u, v;
+        cin >> u >> v;
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+
+    rep(i, 0, N){
+        if(dfs(i, -1)){
+            ++ans;
+        }
+    }
 
     cout << ans << endl;
     return 0;
