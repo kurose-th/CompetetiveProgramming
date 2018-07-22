@@ -19,36 +19,28 @@ typedef long long ll;
 #define all(x) (x).begin(), (x).end()
 
 // 
-int N;
-int M;
+int N, M;
 int ans = 0;
-const int mm = 101000;
-bool island[mm];
-int a[mm];
-int b[mm];
-vector<pair<int, pair<int, int>>> v;
-int bridge[mm];
+vector<pair<int, int>> v;
 
 int main(){
     cin >> N >> M;
 
-    repeq(i, 1, mm){
-        island[i] = false;
-    }
+    v.resize(M);
+
     rep(i, 0, M){
-        cin >> a[i] >> b[i];
-        v.push_back(make_pair(a[i], make_pair(a[i], b[i])));
+        int a, b;
+        cin >> a >> b;
+        v[i] = make_pair(b, a);
     }
-    sort(all(v), greater< pair<int, pair<int, int>> >());
-    
+    sort(all(v));
+
+    int t = 0;
     rep(i, 0, M){
-        int kari = 0;
-        rep(j, 0, M){
-            if(((v[i].second.second <= v[j].second.first)) || (v[i].second.first >= v[j].second.second)){
-                ++kari;
-            }
+        if(t <= v[i].second){
+            ++ans;
+            t = v[i].first;
         }
-        ans = max(kari, ans);
     }
 
     cout << ans << endl;
