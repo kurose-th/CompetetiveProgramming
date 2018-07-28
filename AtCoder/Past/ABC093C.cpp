@@ -18,31 +18,13 @@ typedef long long ll;
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
 
-// C - Grid Repainting 2
-int H, W;
-char grid[55][55];
-string ans;
+// C - Same Integers
+int A, B, C;
+int ans = 0;
 
 int main(){
-    cin >> H >> W;
+    cin >> A >> B >> C;
 
-    ans = "Yes";
-    repeq(i, 1, H){
-        repeq(j, 1, W){
-            cin >> grid[i][j];
-        }
-    }
-    repeq(i, 1, H){
-        repeq(j, 1, W){
-            char tmp;
-            if(grid[i][j] == '#'){
-                tmp = '.';
-                if(grid[i-1][j] == tmp && grid[i][j-1] == tmp && grid[i+1][j] == tmp && grid[i][j+1] == tmp){
-                    ans = "No";
-                }
-            }
-        }
-    }
     cout << ans << endl;
     return 0;
 }

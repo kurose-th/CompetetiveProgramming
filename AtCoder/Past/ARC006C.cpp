@@ -18,31 +18,32 @@ typedef long long ll;
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
 
-// C - Grid Repainting 2
-int H, W;
-char grid[55][55];
-string ans;
+// C - 積み重ね
+int N;
+int ans = 0;
+int w[60];
+vector<int> haichi;
 
 int main(){
-    cin >> H >> W;
-
-    ans = "Yes";
-    repeq(i, 1, H){
-        repeq(j, 1, W){
-            cin >> grid[i][j];
-        }
+    cin >> N;
+    rep(i, 0, N){
+        cin >> w[i];
     }
-    repeq(i, 1, H){
-        repeq(j, 1, W){
-            char tmp;
-            if(grid[i][j] == '#'){
-                tmp = '.';
-                if(grid[i-1][j] == tmp && grid[i][j-1] == tmp && grid[i+1][j] == tmp && grid[i][j+1] == tmp){
-                    ans = "No";
+
+    haichi.push_back(w[0]);
+    rep(i, 1, N){
+        if(haichi[0] < w[i]){
+            haichi.insert(haichi.begin(), w[i]);
+        }else{
+            for(int j = haichi.size()-1;j>=0;--j){
+                if(haichi[j] >= w[i]){
+                    haichi[j] = w[i];
+                    break;
                 }
             }
         }
     }
+    ans = haichi.size();
     cout << ans << endl;
     return 0;
 }
