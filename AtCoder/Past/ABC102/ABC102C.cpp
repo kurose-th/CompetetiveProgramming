@@ -14,56 +14,28 @@ using namespace std;
 #define pb push_back
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
+typedef long long ll;
 
 // C - Linear Approximation
+ll ans = 0;
 int main(){
-    long int N;
+    ll N;
     cin >> N;
 
-    long int A[200100];
-    long int B[200100];
+    ll A[200100];
+    vector<ll> B;
+
     rep(i, 0, N){
         cin >> A[i];
-        B[i] = A[i] - (i+1);
+        B.push_back(A[i] - (i+1));
     }
+    sort(all(B));
 
-    map<long int, long int> mp;
+    ll b = B[N/2];
     rep(i, 0, N){
-        mp[B[i]]++;
-    }
-    
-    
-    long int maxnum = 1;
-    long int max = 0;
-    for(map<long int, long int>::iterator it=mp.begin(); it != mp.end(); ++it){
-        if(maxnum < it->second){
-            max = it->first;
-            maxnum = it->second;
-        }
-    }
-    long int ans=0;
-    rep(i, 0, N){
-        ans += abs(B[i] - max);
+        ans += abs(B[i] - b);
     }
 
-   /*
-    long int tt = 0;
-    long int test = 0;
-        rep(i, 0, N){
-            tt += abs(B[i] - test);
-        }
-    long int ans = tt;
-    for(map<long int, long int>::iterator it=mp.begin(); it != mp.end(); ++it){
-        test = it->first;
-        long int tn = it->second;
-        long int tt = 0;
-
-        for(map<long int, long int>::iterator jt=mp.begin(); jt != mp.end(); ++jt){
-            tt += abs(jt->first - test)*jt->second;
-        }
-        ans = min(ans, tt);
-    }
-    */
     cout << ans << endl;
     return 0;
 }

@@ -18,23 +18,14 @@ typedef long long ll;
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
 
-// C - Same Integers
-int A, B, C;
-int ans = 0;
-vector<int> num;
+// C - Flip,Flip, and Flip......
+ll N, M;
+ll ans = 0;
 
 int main(){
-    cin >> A >> B >> C;
-    num.push_back(A);
-    num.push_back(B);
-    num.push_back(C);
-    sort(all(num));
-    ans += num[2] - num[1];
-    ans += (num[2] - (num[0] + ans)+1)/2;
+    cin >> N >> M;
 
-    int diff = num[2] - num[1] + num[2] - num[0];
-    if(diff%2 == 1) ++ans;
-
+    ans = abs(N-2)*abs(M-2);
     cout << ans << endl;
     return 0;
 }

@@ -18,23 +18,20 @@ typedef long long ll;
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
 
-// C - Same Integers
-int A, B, C;
-int ans = 0;
-vector<int> num;
+// C - Takahashi's Information
+int c[3][3];
+int b[3];
+int a[3];
+string ans;
 
 int main(){
-    cin >> A >> B >> C;
-    num.push_back(A);
-    num.push_back(B);
-    num.push_back(C);
-    sort(all(num));
-    ans += num[2] - num[1];
-    ans += (num[2] - (num[0] + ans)+1)/2;
-
-    int diff = num[2] - num[1] + num[2] - num[0];
-    if(diff%2 == 1) ++ans;
-
+    rep(i, 0, 3){
+        rep(j, 0, 3){
+            cin >> c[i][j];
+            a[i] += c[i][j];
+            b[j] += c[i][j];
+        }
+    }
     cout << ans << endl;
     return 0;
 }
