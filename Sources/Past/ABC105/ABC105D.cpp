@@ -20,23 +20,29 @@ typedef long long ll;
 #define all(x) (x).begin(), (x).end()
 
 // D - Candy Distribution
-int N, M;
+ll N, M;
 vector<ll> A;
-vector<ll> S;
+map<ll, ll> X;
 ll ans = 0;
 
 int main(){
     cin >> N >> M;
-    int tmp;
+    ll tmp;
     rep(i, 0, N){
         cin >> tmp;
         A.push_back(tmp);
     }
 
+    ++X[0];
+    ll sum=0;
     rep(i, 0, N){
-        
+        sum += A[i];
+        ++X[sum%M];
     }
 
+    repi(X, i){
+        ans += i->second*(i->second -1)/2;
+    }
 
     cout << ans << endl;
     return 0;
