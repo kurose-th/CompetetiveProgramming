@@ -35,9 +35,10 @@ struct UnionFind {
 
 // 各桁の数字の和を返す
 // exp) SummarizeDigit(12345) = 15
-int SummarizeDigit(int n){
-  int sum=0;
-  int dig;
+template <typename T>
+T SummarizeDigit(T n){
+  T sum=0;
+  T dig;
   while(n){
     dig = n%10;
     sum += dig;
