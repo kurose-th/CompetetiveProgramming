@@ -17,6 +17,20 @@ T SummarizeDigit(T n)
     return sum;
 }
 
+template <typename T>
+vector<T> CalcDivisor(T n){
+    vector<T> divisor;
+
+    rep(i, 1, (T)sqrt(n)+1){
+        if(n%i == 0){
+            divisor.push_back(i);
+            divisor.push_back(n / i);
+        }
+    }
+    return divisor;
+}
+
+
 // 二分累乗法
 // 下のコードよりも早い？わからん
 // long long int MOD = 1000000007;
