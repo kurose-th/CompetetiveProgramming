@@ -22,14 +22,42 @@ typedef long long ll;
 template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return true; } return false; }
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return true; } return false; }
 
-// 
-int N;
-int ans = 0;
+
+// H - Grid 1
+ll H, W;
+vector<string> a;
+const ll MOD = 1000000007;
+ll dp[1100][1100];
+
+void add(ll &a, ll b){
+    a += b;
+    if(a >= MOD){
+        a -= MOD;
+    }
+}
 
 int main(){
-    cin >> N;
+    cin >> H >> W;
+    a.resize(H);
+    rep(i, 0, H){
+        cin >> a[i];
+    }
 
-    cout << ans << endl;
+    dp[0][0] = 1;
+    rep(i, 0, H){
+        rep(j, 0, W){
+            if(i+1<H && a[i+1][j] == '.'){
+                add(dp[i + 1][j], dp[i][j]);
+            }
+            if(j+1<W && a[i][j+1] == '.'){
+                add(dp[i][j + 1], dp[i][j]);
+            }
+        }
+    }
+
+
+
+    cout << dp[H-1][W-1] << endl;
     return 0;
 }
 

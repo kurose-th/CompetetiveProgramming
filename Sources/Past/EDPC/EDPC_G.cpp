@@ -22,12 +22,44 @@ typedef long long ll;
 template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return true; } return false; }
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return true; } return false; }
 
-// 
-int N;
-int ans = 0;
+
+// E - Knapsack 2
+ll N, W;
+ll w[110];
+ll v[110];
+ll ans = 0;
+const int MAX_N = 110;
+const int MAX_V = 110000;
+const ll INF = 10000000000000;
+ll dp[MAX_N][MAX_V];
 
 int main(){
-    cin >> N;
+    cin >> N >> W;
+    rep(i, 0, N){
+        cin >> w[i] >> v[i];
+    }
+
+    rep(i, 0, MAX_N){
+        rep(j, 0, MAX_V){
+            dp[i][j] = INF;
+        }
+    }
+
+    dp[0][0] = 0;
+    rep(i, 0, N){
+        repeq(j, 0, MAX_V){
+            if(j>=v[i]){
+                chmin(dp[i+1][j], dp[i][j-v[i]] + w[i]);
+            }
+            chmin(dp[i+1][j], dp[i][j]);
+        }
+    }
+
+    rep(i, 0, MAX_V){
+        if(dp[N][i] <= W){
+            ans = i;
+        }
+    }
 
     cout << ans << endl;
     return 0;
